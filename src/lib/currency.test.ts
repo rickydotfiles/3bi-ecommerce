@@ -18,4 +18,31 @@ describe('formatCurrency', () => {
   })
 
   // TODO: escreva mais casos. Ideias: zero, 5 centavos, R$ 1.234,56, valores negativos...
+
+  it("valor negativo", () => {
+    const valorNegativo = -100000000
+
+    const resultado = formatCurrency(valorNegativo)
+
+    expect(resultado).toBe("-R$ 1.000.000,00")
+  })
+
+  it("centavos", () => {
+    const centavos = 003
+
+    const resultado = formatCurrency(centavos)
+
+    expect(resultado).toBe("R$ 0,03")
+  })
+
+  it("valor sequencial", () => {
+    const sequencial = 123456
+
+    const resultado = formatCurrency(sequencial)
+
+    expect(resultado).toBe("R$ 1.234,56")
+  })
+
+  
+
 })
